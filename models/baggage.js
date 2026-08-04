@@ -24,7 +24,7 @@ const BudgetSchema = new Schema({
         type: Number,
         default: 0,
     },
-    expenses: [ExpenseSchema],
+    expenses: [ExpenseSchema], 
 });
 
 const TripSchema = new Schema({
