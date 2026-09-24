@@ -5,6 +5,7 @@ import { authMiddleware } from './middlewares/auth.js';
 
 import HANDLERS from './handlers/index.js';
 import errorMiddleware from './middlewares/error.js';
+import cors from 'cors'
 
 const app = express();
 
@@ -12,6 +13,9 @@ const PORT = process.env.PORT;
 
 connectDB();
 
+app.use(cors({
+    origin: process.env.FRONTEND_URL, methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'], allowedHeaders: ['content-Type', 'Authorization'], 
+}));
 app.use(express.json());
 app.use(authMiddleware);
 app.use("/",HANDLERS);
