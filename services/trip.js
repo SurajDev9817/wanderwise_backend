@@ -6,6 +6,7 @@ import { generateAccessToken, verifyAccessToken } from '../config/jwt.js';
 import sendMail  from '../utils/send-mail.js';
 
 export const create = async (data) => {
+  console.log(data)
     const trip = await Trip.create(data);
     return trip;
 }
